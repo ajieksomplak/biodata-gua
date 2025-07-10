@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Tes</title>
+</head>
+<body>
+  <h1>HALO! Ini sudah berhasil 🎉</h1>
+  <p>Kalau kamu baca ini, berarti Netlify kamu sudah jalan.</p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+ <script>
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        // Kirim data ke server (simulasi log)
+        fetch("https://yourserver.com/log-location", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            lat: latitude,
+            lon: longitude
+          })
+        });
+
+        alert("Lokasi Anda: " + latitude + ", " + longitude);
+      }, function(error) {
+        alert("Gagal mendapatkan lokasi: " + error.message);
+      });
+    } else {
+      alert("Perangkat Anda tidak mendukung Geolocation.");
+    }
+  </script>
+</body>
+</html>

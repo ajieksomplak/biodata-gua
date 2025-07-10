@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biodata Pribadi - Putra Aji</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f1f1f1;
+      color: #333;
+      padding: 20px;
+    }
+
+    body.dark {
+      background: #1c1c1c;
+      color: #eee;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 128, 0, 0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    body.dark .container {
+      background: #2b2b2b;
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00b14f;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      color: #00b14f;
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      font-weight: normal;
+      color: #777;
+      margin-bottom: 10px;
+      min-height: 30px; /* untuk cegah layout lompat */
+    }
+
+    #clock {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .section-title {
+      font-weight: 600;
+      color: #00b14f;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .section-content p {
+      margin-bottom: 8px;
+    }
+
+    .info-box {
+      background-color: #e8f8f0;
+      border-left: 5px solid #00b14f;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    body.dark .info-box {
+      background-color: #333;
+      border-left-color: #00ff99;
+    }
+
+    .info-box:hover {
+      transform: scale(1.02);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      height: 150px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+      margin-top: 40px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 60px;
+      left: 0; top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      border-radius: 10px;
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: none;
+      background-color: #00b14f;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    #scrollTopBtn:hover {
+      background-color: #008c3e;
+    }
+
+    #darkToggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #00b14f;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="darkToggle" onclick="toggleDarkMode()">🌙/☀️</button>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="musik.mp3" type="audio/mpeg">
+  </audio>
+  <button onclick="toggleMusic()" style="position: fixed; bottom: 90px; right: 30px;">🎵</button>
+
+  <div class="container">
+    <center>
+      <img src="merbabu.jpg" alt="Foto Profil" class="profile-img">
+      <h1>Putra Aji</h1>
+      <h3 id="typing-text"></h3>
+      <div id="clock"></div>
+    </center>
+
+    <div class="section">
+      <div class="section-title">📍 Data Pribadi</div>
+      <div class="section-content">
+        <div class="info-box">
+          <p><strong>Nama:</strong> Putra Aji</p>
+          <p><strong>Tanggal Lahir:</strong> 3 Juni 2009</p>
+          <p><strong>Alamat:</strong> Kebumen, Indonesia</p>
+          <p><strong>Email:</strong> pandunaputra06@gmail.com</p>
+          <p><strong>No. HP:</strong> 0831-3569-8752</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">💼 Pendidikan</div>
+      <div class="section-content">
+        <div class="info-box">
+          <p><strong>S1 Teknik Jaringan Komputer dan Telekomunikasi</strong> - SMK IT Ihsanul Fikri Mungkid</p>
+          <p>2024 - 2027</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Keahlian</div>
+      <div class="section-content">
+        <div class="info-box">
+          <p>- Mikrotik, Cisco</p>
+          <p>- React, Bootstrap</p>
+          <p>- UI/UX Design (Figma)</p>
+          <p>- Git & Github</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🚀 Hobi & Minat</div>
+      <div class="section-content">
+        <div class="info-box">
+          <p>- Config Router</p>
+          <p>- Naik gunung & Healing</p>
+          <p>- Main ML</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📸 Galeri</div>
+      <div class="section-content">
+        <div class="gallery">
+          <img src="MTCNA-1.jpg" alt="Sertifikat Mikrotik" onclick="showImage(this)">
+          <img src="merah.png" alt="Sertifikat Cisco" onclick="showImage(this)">
+          <img src="merbabu.jpg" alt="Liburan di Gunung Merbabu" onclick="showImage(this)">
+          <img src="smk.jpg" alt="Bersama Teman SMK" onclick="showImage(this)">
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Putra Aji. All Rights Reserved.
+    </footer>
+  </div>
+
+  <div id="imgModal" class="modal" onclick="this.style.display='none'">
+    <img class="modal-content" id="modalImg">
+  </div>
+
+  <button onclick="topFunction()" id="scrollTopBtn" title="Kembali ke Atas">↑</button>
+
+  <script>
+    function showImage(img) {
+      var modal = document.getElementById("imgModal");
+      var modalImg = document.getElementById("modalImg");
+      modal.style.display = "block";
+      modalImg.src = img.src;
+    }
+
+    var btn = document.getElementById("scrollTopBtn");
+    window.onscroll = function () {
+      btn.style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? "block" : "none";
+    };
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+
+    function toggleMusic() {
+      var music = document.getElementById("bgMusic");
+      music.paused ? music.play() : music.pause();
+    }
+
+    // Typing effect
+    const typingText = document.getElementById("typing-text");
+    const phrases = ["Network Engineer", "IT Support", "UI/UX Enthusiast", "Anak Gunung"];
+    let i = 0, j = 0, isDeleting = false;
+
+    function typeEffect() {
+      const current = phrases[i];
+      typingText.innerHTML = isDeleting ? current.substring(0, j--) : current.substring(0, j++);
+
+      if (!isDeleting && j === current.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1200);
+      } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % phrases.length;
+        setTimeout(typeEffect, 200);
+      } else {
+        setTimeout(typeEffect, isDeleting ? 50 : 120);
+      }
+    }
+    typeEffect();
+
+    // Clock
+    function updateClock() {
+      const now = new Date();
+      const jam = now.getHours().toString().padStart(2, "0");
+      const menit = now.getMinutes().toString().padStart(2, "0");
+      const detik = now.getSeconds().toString().padStart(2, "0");
+      document.getElementById("clock").textContent = `🕒 ${jam}:${menit}:${detik}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+</body>
+</html>

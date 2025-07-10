@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biodata Pribadi - Putra Aji</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f1f1f1;
+      color: #333;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 128, 0, 0.1);
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00b14f;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #00b14f;
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      font-weight: normal;
+      color: #777;
+      margin-bottom: 30px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-weight: 600;
+      color: #00b14f;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .section-content p {
+      margin-bottom: 8px;
+    }
+
+    .info-box {
+      background-color: #e8f8f0;
+      border-left: 5px solid #00b14f;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <center>
+      <img src="https://i.imgur.com/1X0Z4tT.png" alt="Foto Profil" class="profile-img">
+      <h1>Putra Aji</h1>
+      <h3>Web Developer | UI/UX Enthusiast</h3>
+    </center>
+
+    <div class="section">
+      <div class="section-title">📍 Data Pribadi</div>
+      <div class="section-content">
+        <div class="info-box">
+          <p><strong>Nama:</strong> Putra Aji</p>
+          <p><strong>Tanggal Lahir:</strong> 4 Juli 2001</p>
+          <p><strong>Alamat:</strong> Yogyakarta, Indonesia</p>
+          <p><strong>Email:</strong> putraaji@email.com</p>
+          <p><strong>No. HP:</strong> 0812-3456-7890</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">💼 Pendidikan</div>
+      <div class="section-content">
+        <div class="info-box">
+          <p><strong>S1 Teknik Informatika</strong> - Universitas Negeri Yogyakarta</p>
+          <p>2019 - 2023</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🛠️ Keahlian</div>
+      <div class="section-content">
+        <div class="info-box">
+          <p>- HTML, CSS, JavaScript</p>
+          <p>- React, Bootstrap</p>
+          <p>- UI/UX Design (Figma)</p>
+          <p>- Git & Github</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">🚀 Hobi & Minat</div>
+      <div class="section-content">
+        <div class="info-box">
+          <p>- Desain UI Aplikasi</p>
+          <p>- Bersepeda dan Kulineran</p>
+          <p>- Coding dan Baca Buku Teknologi</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Putra Aji. All Rights Reserved.
+    </footer>
+  </div>
+</body>
+</html>
